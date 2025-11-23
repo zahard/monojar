@@ -126,6 +126,7 @@ function App() {
                 value={monobankToken}
                 onChange={handleChange}
                 disabled={jarsLoading}
+                style={{ fontSize: "16px" }}
               />
               <div className="flex justify-center mt-4 gap-2">
                 <Button
