@@ -76,11 +76,11 @@ function App() {
   return (
     <>
       <header className="w-full sticky top-0 bg-slate-700 z-20">
-        <div className="py-3 px-10 w-3xl mx-auto">
+        <div className="py-3 px-10 max-w-3xl mx-auto">
           <div className="text-center">{"🐱 Monobank Statement Exporter"}</div>
         </div>
         <div className="w-full h-14 bg-gray-800 py-2">
-          <div className="max-w-4xl mx-auto relative flex justify-around">
+          <div className="max-w-4xl mx-auto relative justify-around flex gap-10">
             {steps.map((stepName, index) => (
               <Step
                 key={stepName}
@@ -93,7 +93,7 @@ function App() {
           </div>
         </div>
       </header>
-      <main className="px-10 pt-5 w-3xl mx-auto ">
+      <main className="px-5 lg:px-10 pt-3 lg:pt-10 max-w-3xl mx-auto ">
         {activeStep === 1 && (
           <>
             <Card title="Provide Token">
@@ -122,7 +122,7 @@ function App() {
               <input
                 placeholder="Monobank Token"
                 type="text"
-                className="rounded-xxl h-10 w-xl bg-gray-800 text-neutral-100 disabled:text-neutral-500 border-neutral-50  px-5 rounded-full"
+                className="rounded-xxl h-10 w-full bg-gray-800 text-neutral-100 disabled:text-neutral-500 border-neutral-50  px-5 rounded-full"
                 value={monobankToken}
                 onChange={handleChange}
                 disabled={jarsLoading}
@@ -181,19 +181,33 @@ function App() {
                 There are {resData.length} transactions found. This data can be
                 exported to JSON file or Excel/GoogleTable format file.
               </p>
-              <div className="flex justify-center gap-4">
+              <div className="flex justify-center gap-4 flex-wrap">
                 <Button color="green">Download JSON</Button>
                 <Button color="green">Download XLSX</Button>
-                <Button color="white">Choose Another Jar</Button>
               </div>
             </Card>
             <Card title="Transactions">
               <TablePreview data={resData} />
             </Card>
+            <div className="flex justify-center p-5 pt-0">
+              <Button color="white" onClick={() => setActiveStep(2)}>
+                Choose Another Jar
+              </Button>
+            </div>
           </>
         )}
       </main>
-      <footer></footer>
+      <footer className="h-20 flex flex-col justify-end p-3 mt-auto">
+        <div className="text-center text-neutral-200 text-sm">
+          Kharkiv, 2025 by{" "}
+          <a
+            className="text-orange-500"
+            href="https://github.com/zahard/monojar/"
+          >
+            zahard
+          </a>
+        </div>
+      </footer>
     </>
   );
 }

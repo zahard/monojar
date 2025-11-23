@@ -26,7 +26,7 @@ export function Button({
     <button
       disabled={disabled}
       onClick={onClick}
-      className={`${bgClass} ${textClass} cursor-pointer disabled:cursor-default inline-flex h-10 px-5 items-center justify-center rounded-full font-medium transition active:scale-95 disabled:bg-gray-400 disabled:active:scale-100`}
+      className={`${bgClass} ${textClass} text-nowrap cursor-pointer disabled:cursor-default inline-flex h-10 px-5 items-center justify-center rounded-full font-medium transition active:scale-95 disabled:bg-gray-400 disabled:active:scale-100`}
     >
       {children}
     </button>

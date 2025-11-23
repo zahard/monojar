@@ -1,4 +1,4 @@
 export const apiSettings = {
-  waitingTime: 1,
+  waitingTime: 5,
   batchSize: 50,
 };
