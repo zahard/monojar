@@ -1,0 +1,41 @@
+:root {
+  font-family: Roboto, system-ui, Avenir, Helvetica, Arial, sans-serif;
+  line-height: 1.5;
+  font-weight: 400;
+
+  color-scheme: light dark;
+  color: rgba(255, 255, 255, 0.87);
+  background-color: #242424;
+
+  font-synthesis: none;
+  text-rendering: optimizeLegibility;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+html,
+body {
+  font-family: Roboto;
+  min-height: 100vh;
+}
+
+.resTable {
+  width: 100%;
+}
+.resTable th,
+.resTable td {
+  text-align: left;
+}
+
+.resTable th:first-child,
+.resTable td:first-child {
+  width: 40px;
+}
+.resTable th:nth-child(2),
+.resTable td:nth-child(2) {
+  width: 100px;
+}
+.resTable th:last-child,
+.resTable td:last-child {
+  text-overflow: ellipsis;
+}
