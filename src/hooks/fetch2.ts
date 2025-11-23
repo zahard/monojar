@@ -7,6 +7,7 @@ export function fetch2(
   url = "",
   options = {}
 ): Promise<{ json: () => Promise<JarTransaction[]> }> {
+  console.log("Fake fetch", url, options);
   counter++;
   return new Promise((resolve) => {
     setTimeout(() => {
