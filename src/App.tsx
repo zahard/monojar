@@ -11,9 +11,10 @@ import { GenerateStatement } from "./components/GenerateStatement";
 import { apiSettings } from "./hooks/api.settings";
 import { resData } from "./hooks/data";
 import { TablePreview } from "./components/TablePreview";
+import exportFromJSON from "export-from-json";
 
 function App() {
-  const [activeStep, setActiveStep] = useState(1);
+  const [activeStep, setActiveStep] = useState(4);
   const [apiIsReady, setApiIsReady] = useState(false);
   const [secondsToRequest, setSecondsToRequest] = useState(0);
   const [lastRequestTime, setLastRequestTime] = useState(0);
@@ -67,6 +68,15 @@ function App() {
   const onJarConfirmedHandle = () => {
     setActiveStep(3);
   };
+
+  const onExportHandle = (target: string) => {
+    const fileName = "statement";
+    const exportType =
+      target === "json" ? exportFromJSON.types.json : exportFromJSON.types.xls;
+
+    exportFromJSON({ data: resData, fileName, exportType });
+  };
+
   const selectedJar = useMemo(() => {
     return jarsList.find((jar) => jar.id === selectedJarId);
   }, [jarsList, selectedJarId]);
@@ -183,8 +193,12 @@ function App() {
                 exported to JSON file or Excel/GoogleTable format file.
               </p>
               <div className="flex justify-center gap-4 flex-wrap">
-                <Button color="green">Download JSON</Button>
-                <Button color="green">Download XLSX</Button>
+                <Button color="green" onClick={() => onExportHandle("json")}>
+                  Download JSON
+                </Button>
+                <Button color="green" onClick={() => onExportHandle("xls")}>
+                  Download XLSX
+                </Button>
               </div>
             </Card>
             <Card title="Transactions">
