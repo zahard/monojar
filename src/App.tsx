@@ -14,7 +14,7 @@ import { TablePreview } from "./components/TablePreview";
 import exportFromJSON from "export-from-json";
 
 function App() {
-  const [activeStep, setActiveStep] = useState(4);
+  const [activeStep, setActiveStep] = useState(1);
   const [apiIsReady, setApiIsReady] = useState(false);
   const [secondsToRequest, setSecondsToRequest] = useState(0);
   const [lastRequestTime, setLastRequestTime] = useState(0);
